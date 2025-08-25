@@ -1,15 +1,29 @@
-import express from 'express';
-import dotenv from 'dotenv';
-import cors from 'cors';
+'use strict';
 
-dotenv.config();
-cors();
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : { default: obj };
+}
 
-const api = express();
-const PORT = process.env.PORT;
-api.use(cors());
+import _express from 'express';
 
-const scores = [
+var _express2 = _interopRequireDefault(_express);
+
+import _dotenv from 'dotenv';
+
+var _dotenv2 = _interopRequireDefault(_dotenv);
+
+import _cors from 'cors';
+
+var _cors2 = _interopRequireDefault(_cors);
+
+_dotenv2['default'].config();
+(0, _cors2['default'])();
+
+var api = (0, _express2['default'])();
+var PORT = process.env.PORT;
+api.use((0, _cors2['default'])());
+
+var scores = [
   {
     user: 'EJT',
     score: '01842',
@@ -32,6 +46,6 @@ api.get('/scores', function (req, res) {
   res.send(scores);
 });
 
-api.listen(PORT, () => {
-  console.log(`Listening on http://localhost:${PORT}`);
+api.listen(PORT, function () {
+  console.log('Listening on http://localhost:' + PORT);
 });
